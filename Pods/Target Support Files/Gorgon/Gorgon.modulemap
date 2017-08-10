@@ -1,0 +1,6 @@
+framework module Gorgon {
+  umbrella header "Gorgon-umbrella.h"
+
+  export *
+  module * { export * }
+}

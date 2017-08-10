@@ -1,0 +1,12 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/Cobra" "$PODS_CONFIGURATION_BUILD_DIR/Gorgon" "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit" "$PODS_CONFIGURATION_BUILD_DIR/Swinject" "$PODS_CONFIGURATION_BUILD_DIR/SwinjectPropertyLoader" "$PODS_CONFIGURATION_BUILD_DIR/SwinjectStoryboard" "${PODS_ROOT}/Fabric/iOS" "${PODS_ROOT}/TwitterCore/iOS" "${PODS_ROOT}/TwitterKit/iOS"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Fabric" "${PODS_ROOT}/Headers/Public/TwitterCore" "${PODS_ROOT}/Headers/Public/TwitterKit"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/Cobra/Cobra.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Gorgon/Gorgon.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit/PromiseKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Swinject/Swinject.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SwinjectPropertyLoader/SwinjectPropertyLoader.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SwinjectStoryboard/SwinjectStoryboard.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Fabric" -isystem "${PODS_ROOT}/Headers/Public/TwitterCore" -isystem "${PODS_ROOT}/Headers/Public/TwitterKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "AVFoundation" -framework "Accounts" -framework "Cobra" -framework "CoreData" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreText" -framework "Fabric" -framework "Foundation" -framework "Gorgon" -framework "PromiseKit" -framework "QuartzCore" -framework "SafariServices" -framework "Security" -framework "Social" -framework "Swinject" -framework "SwinjectPropertyLoader" -framework "SwinjectStoryboard" -framework "TwitterCore" -framework "TwitterKit" -framework "UIKit"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

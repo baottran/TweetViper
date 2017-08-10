@@ -1,0 +1,6 @@
+framework module Cobra {
+  umbrella header "Cobra-umbrella.h"
+
+  export *
+  module * { export * }
+}
