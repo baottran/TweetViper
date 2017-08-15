@@ -37,7 +37,7 @@ extension FeedDataManager: FeedDataManagerType {
 
             
             if let image = imageCache[tweet.profileImageURLString] {
-                print("found cached image for \(tweet.profileImageURLString)")
+//                print("found cached image for \(tweet.profileImageURLString)")
                 updatedTweet.profileImage = image
                 resolve(updatedTweet)
                 return
@@ -47,7 +47,7 @@ extension FeedDataManager: FeedDataManagerType {
             URLSession.shared.dataTask(with: url){ data, response, error in
                 if let data = data {
                     let image = UIImage(data: data)!
-                    print("saving image for \(tweet.profileImageURLString)")
+//                    print("saving image for \(tweet.profileImageURLString)")
                     imageCache[tweet.profileImageURLString] = image
                     updatedTweet.profileImage = image
                     resolve(updatedTweet)

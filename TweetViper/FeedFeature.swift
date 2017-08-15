@@ -27,9 +27,6 @@ extension FeedFeature: FeedFeatureType {
     }
 
     func showInWindow(_ window: UIWindow) {
-        
-//        let controller = storyboard.instantiateViewController(withIdentifier: FeedFeature.featureIdentifier) as! FeedViewController
-//        let controller = FeedViewContro
         window.rootViewController = UINavigationController(rootViewController: controller as! UIViewController)
         window.makeKeyAndVisible()
     }

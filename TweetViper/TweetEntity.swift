@@ -18,13 +18,11 @@ struct TweetEntity {
     var date: Date
     
     init?(json: [String: Any]){
-        print(json["id_str"])
         guard let id = json["id_str"] as? String,
             let text = json["text"] as? String,
             let userData = json["user"] as? [String: Any],
             let profileImageURLString = userData["profile_image_url_https"] as? String,
             let screenName = userData["screen_name"] as? String else {
-                print("didn't find anything")
             return nil
         }
         

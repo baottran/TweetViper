@@ -45,10 +45,8 @@ final class TweetDetailViewController: UIViewController {
         
         // profile icon
         
-        profileIconView.leftAnchor.constraint(equalTo: view.leftAnchor,
-                                              constant: 20).isActive = true
-        profileIconView.topAnchor.constraint(equalTo: view.topAnchor,
-                                             constant: 10).isActive = true
+        profileIconView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        profileIconView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         profileIconView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         profileIconView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         

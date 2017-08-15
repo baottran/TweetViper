@@ -67,21 +67,6 @@ class FeedTableViewCell: UITableViewCell {
         timeStampLabel.topAnchor.constraint(equalTo: screenNameLabel.topAnchor).isActive = true
     }
     
-//    func setProfileImageFrom(urlString: String){
-//        let url = URL(string: urlString)!
-//        URLSession.shared.dataTask(with: url){ data, response, error in
-//            guard let data = data else { return }
-//            
-//            DispatchQueue.main.async {
-//                self.profileIconView.image = UIImage(data: data)
-//            }
-//        
-//        }.resume()
-//        
-//    }
-    
-    
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

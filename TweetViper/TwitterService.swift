@@ -27,7 +27,6 @@ extension TwitterService: TwitterServiceType {
                     guard let response = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [[String : Any]] else {
                         return
                     }
-                    
                     var tweets = [TweetEntity]()
                     
                     for obj in response {
@@ -35,7 +34,6 @@ extension TwitterService: TwitterServiceType {
                             tweets.append(tweet)
                         }
                     }
-                    
                     resolve(tweets)
                 }
                 catch {
@@ -63,16 +61,12 @@ extension TwitterService: TwitterServiceType {
                     guard let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [[String : Any]] else {
                         return
                     }
-                    
                     var tweets = [TweetEntity]()
-                    print("came back with new tweets \(json)")
                     for obj in json {
-                        
                         if let tweet = TweetEntity(json: obj) {
                             tweets.append(tweet)
                         }
                     }
-                    
                     resolve(tweets)
                 }
                 catch {
