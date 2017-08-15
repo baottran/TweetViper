@@ -5,10 +5,11 @@ final class FeedFeature {
     
     static let featureIdentifier = "Feed"
     
-    fileprivate let storyboard: UIStoryboard
+    fileprivate let controller: FeedViewType
     
-    init(storyboard: UIStoryboard) {
-        self.storyboard = storyboard
+    
+    init(controller: FeedViewType) {
+        self.controller = controller
     }
 }
 
@@ -21,13 +22,15 @@ protocol FeedFeatureType: class {
 extension FeedFeature: FeedFeatureType {
     
     func show(fromViewController viewController: UIViewController) {
-        let vc = storyboard.instantiateViewController(withIdentifier: FeedFeature.featureIdentifier) as! FeedViewController
-        viewController.show(vc, sender: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: FeedFeature.featureIdentifier) as! FeedViewController
+//        viewController.show(vc, sender: nil)
     }
-    
+
     func showInWindow(_ window: UIWindow) {
-        let controller = storyboard.instantiateViewController(withIdentifier: FeedFeature.featureIdentifier) as! FeedViewController
-        window.rootViewController = UINavigationController(rootViewController: controller)
+        
+//        let controller = storyboard.instantiateViewController(withIdentifier: FeedFeature.featureIdentifier) as! FeedViewController
+//        let controller = FeedViewContro
+        window.rootViewController = UINavigationController(rootViewController: controller as! UIViewController)
         window.makeKeyAndVisible()
     }
 }

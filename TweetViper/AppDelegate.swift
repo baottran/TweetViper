@@ -50,7 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        // Register Feature to Module proxies for the Cobra application routes
 //        //
         App.sharedInstance.registerProxies([
-            Proxy<FeedFeatureType>(modules: Module<FeedAssembly>())
+            Proxy<FeedFeatureType>(modules: Module<FeedAssembly>()),
+            Proxy<TweetDetailFeatureType>(modules: Module<TweetDetailAssembly>())
             ])
 //
 //        //

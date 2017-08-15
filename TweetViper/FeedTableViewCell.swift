@@ -10,7 +10,81 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var statusLabel: UILabel!
+    var screenNameLabel = UILabel()
+    var statusLabel = UILabel()
+    var timeStampLabel = UILabel()
+    var profileIconView = UIImageView()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
+        
+        prepareSubViews()
+    }
+    
+    func prepareSubViews(){
+        
+        self.contentView.addSubview(statusLabel)
+        self.contentView.addSubview(screenNameLabel)
+        self.contentView.addSubview(profileIconView)
+        self.contentView.addSubview(timeStampLabel)
+        
+        timeStampLabel.text = "lol"
+        timeStampLabel.textAlignment = .right
+        
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        profileIconView.translatesAutoresizingMaskIntoConstraints = false
+        screenNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        timeStampLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        // status label
+        
+        self.statusLabel.numberOfLines = 0
+        
+        statusLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 100).isActive = true
+        statusLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8).isActive = true
+        statusLabel.topAnchor.constraint(equalTo: screenNameLabel.bottomAnchor, constant: 10).isActive = true
+        statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        
+        
+        // screen name label
+        
+        screenNameLabel.leftAnchor.constraint(equalTo: statusLabel.leftAnchor).isActive = true
+//        screenNameLabel.rightAnchor.constraint(equalTo: statusLabel.rightAnchor).isActive = true
+        screenNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+    
+        // profile icon
+        
+        profileIconView.leftAnchor.constraint(equalTo: contentView.leftAnchor,
+                                              constant: 20).isActive = true
+        profileIconView.topAnchor.constraint(equalTo: contentView.topAnchor,
+                                             constant: 10).isActive = true
+        profileIconView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        profileIconView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        timeStampLabel.leftAnchor.constraint(equalTo: screenNameLabel.rightAnchor, constant: 10).isActive = true
+        timeStampLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
+        timeStampLabel.topAnchor.constraint(equalTo: screenNameLabel.topAnchor).isActive = true
+    }
+    
+//    func setProfileImageFrom(urlString: String){
+//        let url = URL(string: urlString)!
+//        URLSession.shared.dataTask(with: url){ data, response, error in
+//            guard let data = data else { return }
+//            
+//            DispatchQueue.main.async {
+//                self.profileIconView.image = UIImage(data: data)
+//            }
+//        
+//        }.resume()
+//        
+//    }
+    
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

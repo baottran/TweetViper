@@ -14,7 +14,7 @@ extension FeedAssembly: Assembly {
         
         // feature
         container.register(FeedFeatureType.self) { resolver in
-            return FeedFeature(storyboard: resolver.resolve(SwinjectStoryboard.self, name: FeedFeature.featureIdentifier)!)
+            return FeedFeature(controller: resolver.resolve(FeedViewController.self)!)
         }
 
         // styles
@@ -35,9 +35,17 @@ extension FeedAssembly: Assembly {
         }
         
         // view controller
-        container.storyboardInitCompleted(FeedViewController.self, name: FeedFeature.featureIdentifier) { resolver, controller in
-            controller.presenter = resolver.resolve(FeedPresenter.self, argument: controller as FeedViewType)!
-            controller.styler = resolver.resolve(FeedStyleType.self)!
+//        container.storyboardInitCompleted(FeedViewController.self, name: FeedFeature.featureIdentifier) { resolver, controller in
+//            controller.presenter = resolver.resolve(FeedPresenter.self, argument: controller as FeedViewType)!
+//            controller.styler = resolver.resolve(FeedStyleType.self)!
+//        }
+        
+//            // view controller
+        container.register(FeedViewController.self) { resolver in
+            FeedViewController(nibName: nil, bundle: nil)
+            }.initCompleted { resolver, controller in
+                controller.presenter = resolver.resolve(FeedPresenter.self, argument: controller as FeedViewType)!
+                controller.styler = resolver.resolve(FeedStyleType.self)!
         }
         
         // presenter

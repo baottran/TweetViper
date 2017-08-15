@@ -15,7 +15,8 @@ final class FeedPresenter {
 
 protocol FeedPresenterViewType: class {
     func requestTweets()
-
+    func requestDetailsForTweet(_ tweet: TweetEntity)
+    func requestNewTweets(afterTweet tweet: TweetEntity)
 }
 
 // MARK: - FeedPresenterViewType
@@ -23,11 +24,22 @@ extension FeedPresenter: FeedPresenterViewType {
     func requestTweets() {
         interactor.fetchTweets()
     }
+    
+    func requestDetailsForTweet(_ tweet: TweetEntity){
+        router.showDetailsForTweet(tweet)
+    }
+    
+    func requestNewTweets(afterTweet tweet: TweetEntity) {
+        interactor.fetchTweets(afterTweet: tweet)
+    }
+    
+    
 
 }
 
 protocol FeedPresenterInteractorType: class {
     func successfullyFetchedTweets(_ tweets: [TweetEntity])
+    func successfullyFetchedNewTweets(_ tweets: [TweetEntity])
     func failedToFetchTweets(_ tweets: [TweetEntity])
 }
 
@@ -54,7 +66,6 @@ extension FeedPresenter: FeedPresenterInteractorType {
     
     func successfullyFetchedTweets(_ tweets: [TweetEntity]){
         DispatchQueue.main.async {
-            print("got tweets \(tweets)")
             self.view?.displayTweets(tweets)
         }
     }
@@ -63,6 +74,10 @@ extension FeedPresenter: FeedPresenterInteractorType {
         print("error fetching tweets")
     }
     
-
+    func successfullyFetchedNewTweets(_ tweets: [TweetEntity]){
+        DispatchQueue.main.async {
+            self.view?.displayNewTweets(tweets)
+        }
+    }
 }
 
